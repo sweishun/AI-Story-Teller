@@ -1,0 +1,135 @@
+.white {
+    color: white;
+}
+.center-align {
+    display: flex;
+    justify-content: center;
+}
+body, html {
+    /* height: 100%; */
+    margin: 0;
+    font-family: 'Nunito', sans-serif;
+    background-image: linear-gradient(0deg,purple, black 60%);
+    background-repeat: no-repeat, no-repeat;
+    background-position: center, top right;
+    background-size: cover, contain;
+}
+.main-heading {
+    display: flex;
+    margin: 10px;
+}
+.main-heading .ai-icon {
+    height: 35px;
+    width: 35px;
+    
+}
+.main-heading .ai-text {
+    font-weight: 600;
+    font-size: 28px;
+    margin-left: 10px;
+}
+
+.main-container .hero-section-title {
+    text-align: center;
+}
+
+.main-container .hero-section-title .hero-text{
+    background-image: linear-gradient(230deg, #88ffeb, #b5ff6f 58%, #f6a8ff);
+    font-family: AttSC, sans-serif;
+    font-size: 56px;
+    font-weight: 500;
+    letter-spacing: -.02em;
+    line-height: 1.2;
+    max-width: 20ch;
+    text-transform: capitalize;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.main-container .hero-section-title .hero-text .bold-text {
+    font-weight: 500;
+}
+.main-container .heading {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+}
+.main-container .heading .heading-1 {
+    display: contents;
+    font-family: AttSC, sans-serif;
+    font-size: 56px;
+    font-weight: 500;
+    letter-spacing: -.02em;
+    line-height: 1.2;
+    max-width: 20ch;
+    text-transform: capitalize;
+    color: white;
+}
+.main-container .sub-heading {
+    display: flex;
+    justify-content: center;
+    margin-top: 25px;
+    font-size: 24px;
+}
+.main-container .generate-section {
+    margin: 20px 50px;
+}
+.main-container .generate-section .text-center {
+    margin-top: 10px;
+}
+
+.main-container .generate-section .choose-section {
+    margin-top: 10px;
+}
+.main-container .generate-section .generate-button{
+    border-radius: 5px;
+    font-size: 17px;
+    font-family: 'Source Sans Pro', sans-serif;
+    padding: 6px 18px;
+    background-color: rgb(16, 163, 127) !important;
+    color: rgba(255, 255, 255) !important;
+    width: 180px;
+    text-align: center;
+}
+.main-container {
+    min-height: 100vh;
+    height:100%;
+    padding: 2rem;
+    transition: margin-left .5s;
+}
+
+.main-container .generated-storybooks {
+    margin-top: 80px;
+}
+
+.mkting-section .sections {
+    border-bottom: 1px solid var(--white);
+    display: flex;
+}
+.mkting-section .sections .section {
+    margin: 5px;
+    background: #ddd !important;
+    color: black;
+    padding: 9px 30px;
+}
+
+.btn-primary {
+    background-color: #4D77FF;
+    border: none;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+@media screen and (max-height: 450px) {
+    .sidebar {padding-top: 15px;}
+    .sidebar a {font-size: 18px;}
+}
+
+
+.page img {
+    display: block;
+    margin: auto;
+    max-height: 250px;
+    object-fit: cover;
+}
+.white-link {
+    color: white;
+    /* text-decoration: none; */
+}   

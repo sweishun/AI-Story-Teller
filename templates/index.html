@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Create Your Storybook</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" crossorigin="anonymous">
+    <link rel="stylesheet" href="/static/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="main-heading white">
+        <img class="ai-icon" src="/static/ai-story-teller-icon.jpeg" alt="ai story teller"> 
+        <div class="ai-text">AI Story Teller</div>
+    </div>
+    <div class="main-container" id="main-container">
+
+        <div class="hero-section-title center-align">
+            <h1 class="hero-text"><strong class="bold-text">Everyone Has A Story. What's Yours?<br></strong></h1>
+        </div>
+
+        <!-- <div class="sub-heading white">Storytelling Meets AI</div> -->
+
+        <div class="generate-section white">
+            <!-- <h2 class="card-title text-center mb-4 center-align">Create Your Storybook</h2> -->
+            
+            <form action="/" method="post">
+                <div class="mb-3 choose-section center-align">
+                    <label for="theme" class="form-label white">Choose a theme:</label>
+                    <select name="theme" id="theme" class="form-select">
+                        <option value="Adventure">Adventure</option>
+                        <option value="Fantasy">Fantasy</option>
+                        <option value="Family">Family</option>
+                        <option value="Imagination">Imagination</option>    
+                        <option value="Environment">Environment</option>
+                        <option value="Animals">Animals</option>
+                        <option value="Medieval">Medieval</option>
+                    </select>
+                </div>
+                <div class="mb-3 choose-section center-align">
+                    <label for="age_range" class="form-label white">Select age range:</label>
+                    <select name="age_range" id="age_range" class="form-select">
+                        <option value="2-4">2-4 years</option>
+                        <option value="5-7">5-7 years</option>
+                    </select>
+                </div>
+                <div class="mb-3 choose-section center-align">
+                    <label for="num_pages" class="form-label white">Number of pages:</label>
+                    <select name="num_pages" id="num_pages" class="form-select">
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                        <option value="5">5</option>
+                        <option value="6">6</option>
+                    </select>
+                </div>
+                <div class="mb-3 choose-section center-align">
+                    <label for="num_char" class="form-label white">Number of Characters:</label>
+                    <select name="num_char" id="num_char" class="form-select">
+                        <option value="1">1</option>
+                        <option value="2">2</option>
+                        <option value="3">3</option>
+                        <option value="4">4</option>
+                    </select>
+                </div>  
+                <div class="mb-3 choose-section center-align">
+                    <label for="user_input" class="form-label white">Your Input:</label>
+                    <input type="text" id="user_input" name="user_input" class="form-control">
+                </div>
+                <div class="text-center center-align">
+                    <button type="submit" class="text-center generate-button">Generate Book</button>
+                </div>
+            </form>
+            <!-- History Card for Generated Books -->
+            <div class="generate-section generated-storybooks">
+                <h2 class="center-align">Storybooks Library</h2>
+                <ul class="list-group list-group-flush story-list white">
+                    {% for book in books %}
+                        <li class="list-group-item story-list white">
+                            <a href="{{url_for('book_display_file', filename=book.filename) }}" class="white-link">
+                            {{book.title}}
+                            </a>
+                            <form action="{{ url_for('delete_book') }}" method="post" class="ms-2">
+                                <input type="hidden" name="filename" value="{{ book.filename }}">
+                                <button type="submit" class="btn btn-danger btn-sm">Delete</button>
+                            </form>
+                        </li>
+                    {% else %}
+                        <li class="list-group-item story-list white">No books generated yet.</li>
+                    {% endfor %}
+                </ul>
+            </div>
+
+            <!-- <div class="mkting-section">
+                <h2 class="heading">AI Story Teller Enables You to Produce More, Faster.</h2>
+                <div class="sections">
+                    <div class="section">
+                        <h4 class="header">More Than 4 Seconds</h4>
+                        <p class="text">Produce mini-stories and AI generated videos up to 60 seconds long with unprecedented coherence. All in real time. </p>
+                    </div>
+                    <div class="section">
+                        <h4 class="header">More Creative Control</h4>
+                        <p class="text">Create a first draft. Then, rewrite plotlines, reshape characters restyle scenes with our robust editing toolkit built for real-time creativity. </p>
+                    </div>
+                    <div class="section">
+                        <h4 class="header">More Story-Centric</h4>
+                        <p class="text">We model a storyboard progression to achieve plots that form story arcs—from introduction to climax to resolution. </p>
+                    </div>
+                </div>
+            </div> -->
+        </div>
+    <div>
+</div>    
+</body>
+</html>

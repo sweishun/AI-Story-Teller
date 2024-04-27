@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Generated Book</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/5.1.0/css/bootstrap.min.css" crossorigin="anonymous">
+    <style>
+        body {
+            background: linear-gradient(135deg, #89F7FE 0%, #66A6FF 100%);
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Nunito', sans-serif;
+            color: #5D3A00; /* Pleasant font color */
+            padding: 2rem;
+        }
+        .container {
+            padding-top: 2rem; 
+            max-width: 1200px; /* Maximum width of the container */
+            margin: 0 auto; /* Center the container */
+        }
+        .page {
+            background: #fff;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: stretch; /* Stretch children to fill the height */
+            margin-bottom: 2rem;
+        }
+        .page img {
+            width: 80%; /* Full width */
+            object-fit: contain; /* Cover the aspect ratio of the container */
+            height: auto; /* Adjust height automatically */
+            border-bottom: 1px solid #ccc; /* Separator between image and text */
+        }
+        .card-body{
+            padding: 1.25rem; 
+            display: flex;
+            flex-direction: column; /* Stack elements vertically */
+            justify-content: center; /* Center content vertically */
+            width: 50%; /* Text takes up the remaining half */
+        }
+        .card-text {
+            font-size: 1.25rem; /* Larger font-size */
+            text-align: justify;
+            font-weight: 500; /* Medium font weight for legibility */
+        }
+        h1 {
+            font-size: 2.5rem;
+            text-align: center;
+            margin-bottom: 2rem;
+            color: #5D3A00;
+        }
+    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Caveat&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="container my-5">
+        <div class="text-center mb-4">
+            <h1>{{ title }}</h1>  
+            <a href="{{ url_for('index') }}" class="btn btn-primary mt-3">Back to Homepage</a>
+        </div>
+        <div class="row">
+            {% for page in pages %}
+                {% if loop.index is odd %}
+                    <div class="row justify-content-center mb-4">
+                {% endif %}
+                
+                <div class="col-md-6">
+                    <div class="card page">
+                        <div class="position-relative">
+                            <img src="{{ page.image_url }}" class="img-fluid" alt="Generated Image">
+                        </div>
+                        <div class="card-body">
+                            <p class="card-text">{{ page.text }}</p>
+                            <!-- Include the audio element somewhere here -->
+                            <audio controls class="w-100 mt-2">
+                                <source src="{{ url_for('audio_file', filename=page.audio_url) }}" type="audio/mpeg">
+                                Your browser does not support the audio tag.
+                            </audio> 
+                        </div>
+                    </div>
+                </div>
+                {% if loop.index is even or loop.last %}
+                    </div> <!-- End of the row if it's the second column or last item -->
+                {% endif %}
+            {% else %}
+                <div class="col-12 text-center">
+                    <p>No pages to display.</p>
+                </div>
+            {% endfor %}
+        </div>
+    </div>
+</body>
+</html>
